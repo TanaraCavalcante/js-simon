@@ -12,16 +12,26 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div class="container">
-         <h2>Contagem</h2>
+    <header>
+        <h2>Memory Numbers</h2>
+    </header>
+    <div class="container text-center" >
+         <h2 class="my-4">0</h2>
+         <div id="message">Memorize the numbers...</div>
          <div id="random"></div>
          <div id="numbers-field">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
+            <input type="number" class="text-input">
+            <input type="number" class="text-input">
+            <input type="number" class="text-input">
+            <input type="number" class="text-input">
+            <input type="number" class="text-input">
+            <input type="number" class="text-input">
          </div>
     </div>
+    <div class="container text-center">
+        <h4 id="result">Complimenti!</h4>
+        <p id="score">acertou 5 numeros!</p>
+    </div>
+
 </body>
 </html>

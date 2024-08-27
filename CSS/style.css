@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(100, 120, 221, 0.868);
+}
+
+.container{
+    width: 800px;
+    margin: 100px auto;
+}
+
+header{
+    height: 80px;
+    background-color: white;
+    padding: 20px;
+}
+
+.text-input{
+    width: 60px;
+}
+
+#message {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
