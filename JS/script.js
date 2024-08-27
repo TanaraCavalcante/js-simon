@@ -10,3 +10,25 @@ const random = document.getElementById('random');
 const numbersField = document.getElementById('numbers-field');
 const result = document.getElementById('result');
 const score = document.getElementById('score');
+
+//Todo Primo passo
+//Generare un numero random
+
+//creare un timeout
+ 
+//TODO Finito il Time...
+//Nascondere i numeri random
+
+//Mostrare l'input e racogliere i numeri
+
+//Paragonare i randomNumbers con i numbersField
+
+//controlare quanti elementi delle due array sono uguale
+
+//TODO OUTPUT
+
+
+
+
+
+
