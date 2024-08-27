@@ -31,3 +31,9 @@ header{
 .display-none{
     display: none;
 }
+
+#random{
+    font-size: 1.5em;
+    color: darkred;
+    font-weight: bold;
+}

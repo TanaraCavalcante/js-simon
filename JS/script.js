@@ -13,6 +13,21 @@ const score = document.getElementById('score');
 
 //Todo Primo passo
 //Generare un numero random
+let totNumbers = 6;
+let max = 99;
+
+const getRandomNumbers = (max, totNumbers) => {
+    const numbers = [];
+    while(numbers.length < totNumbers){
+      const randomNumbers = Math.floor(Math.random() * max)+ 1; 
+      if(!numbers.includes(randomNumbers)) numbers.push(randomNumbers);
+    }
+    return numbers;
+  }
+
+const numbers = getRandomNumbers(max , totNumbers);
+random.innerText = (numbers[0] + ' ' + numbers[1] + ' ' + numbers[2] + ' ' + numbers[3] + ' ' + numbers[4] + ' ' + numbers[5] + ' ');
+
 
 //creare un timeout
  
