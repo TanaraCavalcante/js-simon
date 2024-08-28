@@ -8,16 +8,18 @@ NOTA: non è importante l'ordine con cui l'utente inserisce i numeri, basta che 
 const timer = document.getElementById('time-down');
 const message = document.getElementById('message');
 const random = document.getElementById('random');
-const input = document.querySelectorAll('input');
+const form = document.querySelector('form');
+const numbersField = document.getElementById('numbers-field')
+const inputFields = document.querySelectorAll('input');
 const result = document.getElementById('result');
-const score = document.getElementById('score');
+const btnEnvy = document.getElementById('envy');
 
 //TODO FUNCTION
 //Array con Numero Random
-const getRandomNumbers = (max, totNumbers) => {
+const getRandomNumbers = (min, max, totNumbers) => {
     const numbers = [];
     while(numbers.length < totNumbers){
-      const randomNumbers = Math.floor(Math.random() * max)+ 1; 
+      const randomNumbers = Math.floor(Math.random() * (max - min))+ 1; 
       if(!numbers.includes(randomNumbers)) numbers.push(randomNumbers);
     }
     return numbers;
@@ -25,14 +27,22 @@ const getRandomNumbers = (max, totNumbers) => {
 
 //Todo Primo passo
 //Generare un numero random
-let totNumbers = 6;
-let max = 99;
+let totNumbers = 5;
+let max = 50;
+let min = 1;
 
-const numbers = getRandomNumbers(max , totNumbers);
-random.innerText = (numbers[0] + ' ' + numbers[1] + ' ' + numbers[2] + ' ' + numbers[3] + ' ' + numbers[4] + ' ' + numbers[5] + ' ');
+const numbers = getRandomNumbers(min , max,  totNumbers);
+console.log(numbers);
+
+// Stampare in paggina
+let items = '';
+for (let i = 0; i < numbers.length; i++){
+    items += `<li>${numbers[i]}</li>`
+}
+random.innerHTML = items;
 
 //creare un timeout
-let seconds = 2;
+let seconds = 10;
 timer.innerText = seconds;
 
 const countDown = setInterval(() => {
@@ -41,21 +51,37 @@ const countDown = setInterval(() => {
     if(seconds === 0){
         clearInterval(countDown);
         //Nascondere i numeri random
-        random.classList.add('display-none');
+        random.classList.add('d-none');
+        numbersField.classList.remove('d-none');
         message.innerText = 'Qualle sono i numeri?';
-        //Mostrare l'input
-        numberField.classList.remove('display-none');
-    }
+        }
 }, 1000);
 
 //Racogliere i numeri
-const memoNumber = input.value;
+form.addEventListener('submit', event => {
+    event.preventDefault();
+ const userNumbers = [];
+ for(let i = 0; i < inputFields.length; i++){
+    const input = inputFields[i];
+    const value = parseInt(input.value);
+  if(!isNaN(value) && value >= min && value <= max && !userNumbers.includes(value)){
+    userNumbers.push(value);
+  }
+ }
+ console.log(userNumbers);
 
-//Paragonare i randomNumbers con i numbersField
-
-//controlare quanti elementi delle due array sono uguale
-
+ //controlare quanti elementi delle due array sono uguale
+const correctNumbers = [];
+for (let i = 0; i < userNumbers.length; i++){
+    if(numbers.includes(userNumbers[i])) correctNumbers.push(userNumbers[i]);
+}
+console.log(correctNumbers);
 //TODO OUTPUT
+let message = `Hai indovinato ${correctNumbers.length} numeri. Numeri:<b>(${numbers})</b>. Risposta:<b>(${userNumbers})</b></b>`
+
+ result.innerHTML = message;
+})
+
 
 
 

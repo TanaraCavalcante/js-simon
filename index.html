@@ -15,22 +15,26 @@
     <header>
         <h2>Memory Numbers</h2>
     </header>
-    <div class="container text-center" >
-         <h1 class="my-4" id="time-down"></h1>
-         <div id="message">Memorize the numbers...</div>
-         <div id="random"></div>
-         <div>
-            <input type="number" class="text-input display-none number-field" id="">
-            <input type="number" class="text-input display-none number-field" id="">
-            <input type="number" class="text-input display-none" id="number-field">
-            <input type="number" class="text-input display-none" id="number-field">
-            <input type="number" class="text-input display-none" id="number-field">
-            <input type="number" class="text-input display-none" id="number-field">
-         </div>
-    </div>
+    <form id="answer-form" >
+        <div class="container text-center" >
+            <h1  id="time-down">0</h1>
+            <div id="message">Memorize the numbers...</div>
+            <ul id="random" class="d-flex justify-content-center gap-5 list-unstyled"></ul>
+        </div>
+        <div id="numbers-field" class="container text-center d-none">
+            <input type="number"  min="1" max="50" required>
+            <input type="number"  min="1" max="50" required>
+            <input type="number"  min="1" max="50" required>
+            <input type="number"  min="1" max="50" required>
+            <input type="number"  min="1" max="50" required>
+        </div>
+        <div class="container text-center" >
+            <button id="conferma" class="btn btn-primary">Verifica</button>
+        </div>
+    </form>
+   
     <div class="container text-center">
-        <h4 id="result" class="display-none">Complimenti!</h4>
-        <p id="score" class="display-none">acertou 5 numeros!</p>
+        <p id="result"></p>
     </div>
 
 </body>
